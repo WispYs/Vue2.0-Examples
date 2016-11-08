@@ -15,3 +15,6 @@ npm run dev
 npm run build
 ```
 
+注意：
+
+访问地址：localhost:8080/module/login.html
