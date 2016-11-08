@@ -14,7 +14,7 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
+![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/login.png)
 注意：
 
 访问地址：localhost:8080/module/login.html
