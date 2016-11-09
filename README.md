@@ -36,6 +36,8 @@ npm run build
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/goods.png)
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/shoppingCar.png)
 
+## RegionPicker
+![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/regionPicker.png)
 
 # 特别注意：
 
