@@ -6,7 +6,7 @@ import dota from 'assets/img/dota.jpg'
 Vue.use(Vuex)
 
 const state = {
-  title: 'Vuex',
+  title: 'Shopping',
   showNum: 0,
   price:'',
   count: 1,

@@ -8,6 +8,7 @@
     <li><a href="date.html">Date</a></li>
     <li><a href="slider.html">Slider</a></li>
     <li><a href="shopping.html">Shopping</a></li>
+    <li><a href="regionPicker.html">RegionPicker</a></li>
   </ul>
 </div>
 
