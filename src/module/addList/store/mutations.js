@@ -1,9 +1,4 @@
- export const increment = state => {
-    state.count++
-  }
- export const decrement = state => {
-    state.count--
-  }
+
  export const add = state => {
 	  var text = state.newText.trim()
 	  if (text) {

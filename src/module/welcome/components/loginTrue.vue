@@ -7,7 +7,7 @@
     <li><a href="resource.html">Resource</a></li>
     <li><a href="date.html">Date</a></li>
     <li><a href="slider.html">Slider</a></li>
-    <li><a href="vuex.html">Vuex</a></li>
+    <li><a href="shopping.html">Shopping</a></li>
   </ul>
 </div>
 
