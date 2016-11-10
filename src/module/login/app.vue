@@ -2,8 +2,10 @@
 
 
 <div class="login" id="login" >
-	<img class="logo" src="../../assets/img/miku.jpg">
-	<p></p>
+	<div class="imgBox">
+		<img class="logo" id="logo" src="../../assets/img/miku.jpg">
+		<input class="imgInput" type="file" name="" value="">
+	</div>
 	<div v-if="loginerror" class="font12 loginerror LRShake">
 		{{loginerror}}
 	</div>
@@ -24,6 +26,7 @@
 <script>
 import Lib from 'assets/Lib.js'
 import AA from 'assets/aa.js'
+import $ from 'jquery'
 export default {
   data () {
     return {
@@ -37,6 +40,25 @@ export default {
     	},
     	loginerror:'',
     }
+  },
+  mounted: function(){
+  	$(".imgInput").change(function() {
+			var $file = $(this);
+			var fileObj = $file[0];
+			var windowURL = window.URL || window.webkitURL;
+			var dataURL;
+			var $img = $(".logo");
+			 
+			if(fileObj && fileObj.files && fileObj.files[0]){
+				dataURL = windowURL.createObjectURL(fileObj.files[0]);
+				$img.attr('src',dataURL);
+			}else{
+				dataURL = $file.val();
+				var imgObj = document.getElementById("logo");
+				imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+				imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+			}
+		});
   },
   methods: {
 	//登录
@@ -75,12 +97,27 @@ export default {
 		width: 600px;
 		margin:50px auto;
 	}
+	.imgBox{
+		width: 150px;
+		height: 150px;
+		margin: 0 auto;
+		position: relative
+	}
 	.logo{
 		width: 150px;
 		height: 150px;
-		display: block;
-		margin: 0 auto;
 		border-radius: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.imgInput{
+		width: 150px;
+		height: 150px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0
 	}
 	.logininput{
 		font-size: 16px;
