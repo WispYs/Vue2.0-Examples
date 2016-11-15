@@ -92,10 +92,9 @@ export default {
         // 这里是处理错误的回调
       console.log(response)
     })
-    console.dir(Vue.http)
-    //添加loading界面 这里不能使用箭头函数,this指向不一样
-    Vue.http.interceptors.push( function(request, next){
-      console.log(request)
+    //添加loading界面  这里不能使用箭头函数,this指向不一样
+    Vue.http.interceptors.push(function(request, next){
+      console.log(this)
       // 通过控制 组件的`v-show`值显示loading组件
       this.loading = true;
       next((response) => {
@@ -103,7 +102,6 @@ export default {
           return response
       });
     });
-      
   }, 
   methods: {
     onPageClick: function(index){

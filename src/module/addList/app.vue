@@ -1,5 +1,5 @@
 <template>
-  <div class="todoList">
+  <div class="addList">
     <h1>{{ $store.state.title }}</h1>
     <input class="addInput" v-model="$store.state.newText" v-on:keyup.enter="add" type="text"/>
     <ul class="ls">
@@ -7,34 +7,20 @@
         <li v-for="(x, index) in $store.state.texts" v-bind:key="x" >{{x.text}}<button @click="remove(index)">删除</button></li>
       </transition-group>
     </ul>
-    <mu-list :value="$store.state.value" @change="handleChange">
-      <mu-sub-header class="listTitle">天启四骑士</mu-sub-header>
-      <mu-divider inset/>
-        <mu-list-item  :value="index+1" v-for="(list, index) in $store.state.lists" :title="list.title">
-          <mu-avatar :src="list.src" slot="leftAvatar"/>
-          <span slot="describe">
-            <span style="color: rgba(0, 0, 0, .87)">{{list.playerID}}：</span>
-            {{list.meme}}
-          </span >
-          <mu-icon-menu slot="right" icon="more_vert" tooltip="操作" >
-            <mu-menu-item title="回复" />
-            <mu-menu-item title="标记" />
-            <mu-list-item title="删除" @click="removeList(index)"/>
-          </mu-icon-menu>
-        </mu-list-item>
-        <mu-divider inset/>
-    </mu-list>
+    
   </div>
 </template>
 
 <script>
-import {  mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
+  computed: mapGetters([
+    
+  ]),
   methods: mapActions([
     'add',
-    'remove',
-    'removeList',
-    'handleChange'
+    'remove'
   ])
 }
 
@@ -42,7 +28,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.todoList{
+.addList{
   width:600px;
   margin:50px auto
 }
@@ -54,13 +40,7 @@ export default {
   margin:20px 150px;
 
 }
-.listTitle{
-  font-size: 26px;
-  color: black;
-  font-weight: bold;
-  padding: 20px 0;
-}
-.todoList h1{
+.addList h1{
   text-align: center;
 }
 
