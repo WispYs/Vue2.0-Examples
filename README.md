@@ -26,6 +26,9 @@ npm run build
 ## Router
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/router.png)
 
+## Resource
+![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/resource.png)
+
 ## Date
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/date.png)
 
