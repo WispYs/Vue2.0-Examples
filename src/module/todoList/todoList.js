@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import store from './store'
 import App from './app'
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+Vue.use(MuseUI)
 Vue.use(Vuex)
 require('bootstrap-sass')
 
