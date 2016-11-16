@@ -5,18 +5,22 @@
     <div class="list">
       <div class="mask" v-show="loading">
         Loading...
+        <mu-linear-progress />
       </div>
-      <ul class="content" v-show="!loading">
+      <!-- <ul class="content" v-show="!loading">
         <li v-for="(article, index) in articles">
           {{count-9+index}}{{article.title}}
         </li>
-      </ul>
+      </ul> -->
+      <mu-list v-show="!loading">
+        <mu-list-item class="item" v-for="(article, index) in articles" :title="(count-9+index)+article.title" :href="article.alt" inset>
+          <mu-avatar :src="article.images.small" slot="leftAvatar"/>
+        </mu-list-item>
+      </mu-list>
     </div>
-    
     <!-- <button class="prev" @click="subCount" disabled>上一页</button>
     <button class="next" @click="addCount">下一页</button> -->
     <div class="nav">
-       
         <!-- <boot-page></boot-page> -->
               <ul class="pagination boot-page">
                   <li>
@@ -55,12 +59,12 @@ import $ from 'jquery'
 export default {
   data () {
     return {
-      articles : '',
+      articles : [],
       count: 10,
       activeNum: 0,
       cur: 1,
       pageTotal: 10,
-      loading:false
+      loading:true
     }
   },
   computed: {
@@ -88,6 +92,8 @@ export default {
       // 这里是处理正确的回调
       this.articles = response.data.subjects
         // this.articles = response.data["subjects"] 也可以
+      this.loading = false
+      console.log(response)
     }, function (response) {
         // 这里是处理错误的回调
       console.log(response)
@@ -163,6 +169,10 @@ export default {
 }
 </script>
 <style scoped>
+a{
+  text-decoration: none;
+  color: red;
+}
 .box {
     padding: 100px;
 }
@@ -180,7 +190,7 @@ export default {
   }
   .list{
     width:300px;
-    height: 260px;
+    min-height: 500px;
     margin:20px auto;
     position: relative;
   }
@@ -191,7 +201,8 @@ export default {
     width: 300px;
     height: 260px;
     text-align: center;
-    line-height: 260px;
+    line-height: 150px;
+    padding-top: 125px;
     font-size: 50px;
   }
  #resource .content{

@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 import store from './store'
 import shoppingCar from './components/shoppingCar'
 import goods from './components/goods'
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+Vue.use(MuseUI)
 require('bootstrap-sass')
 Vue.use(VueRouter)
 

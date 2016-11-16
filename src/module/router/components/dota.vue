@@ -2,12 +2,12 @@
   <div id="dota">
     <h2>{{text}}</h2>
     <ul>
-      <li><router-link to="/dota/Ti1">Ti1</router-link></li>
-      <li><router-link to="/dota/Ti2">Ti2</router-link></li>
-      <li><router-link to="/dota/Ti3">Ti3</router-link></li>
-      <li><router-link to="/dota/Ti4">Ti4</router-link></li>
-      <li><router-link to="/dota/Ti5">Ti5</router-link></li>
-      <li><router-link to="/dota/Ti6">Ti6</router-link></li>
+      <li><router-link to="/dota/Ti1" replace>Ti1</router-link></li>
+      <li><router-link to="/dota/Ti2" replace>Ti2</router-link></li>
+      <li><router-link to="/dota/Ti3" replace>Ti3</router-link></li>
+      <li><router-link to="/dota/Ti4" replace>Ti4</router-link></li>
+      <li><router-link to="/dota/Ti5" replace>Ti5</router-link></li>
+      <li><router-link to="/dota/Ti6" replace>Ti6</router-link></li>
     </ul>
     <transition name="slide-fade">
       <keep-alive>

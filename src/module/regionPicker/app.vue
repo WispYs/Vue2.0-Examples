@@ -41,6 +41,7 @@ export default {
 	.picker{
 		margin: 100px 0;
 	}
+	
 </style>
 
 

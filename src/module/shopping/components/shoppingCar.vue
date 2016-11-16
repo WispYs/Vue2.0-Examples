@@ -4,7 +4,9 @@
 		<table class="table table-striped">
 		  <thead>
 		    <tr>
-		      <th><input type="checkbox" v-model="allChecked">全选({{checkedCount}})</th>
+		      <th>
+				  <mu-checkbox v-model="allChecked" label="全选" class="demo-checkbox"/>
+		      </th>
 		      <th>商品图片</th>
 		      <th>商品信息</th>
 		      <th>商品总价</th>
@@ -12,7 +14,9 @@
 		  </thead>
 		  <tbody>
 		    <tr v-for="(x,index) in list">
-		      <td><input class="test"  type='checkbox' :value="x.totle" v-model="checked"></td>
+		      <td><input class="test"  type='checkbox' :value="x.totle" v-model="checked">
+				<!-- <mu-checkbox :value="x.totle" v-model="checked" class="demo-checkbox"/> -->
+		      </td>
 		      <td><img style="width:80px;height:80px" v-bind:src='x.goodsImg'></td>
 		      <td>
 		      	<p>商品名称：{{x.goodsName}}</p>
@@ -22,14 +26,34 @@
 		      </td>
 		      <td>{{x.totle}}元</td>
 		    </tr>
-		    
 		  </tbody>
 		</table>
+		<mu-table  :fixedHeader="fixedHeader" :allRowsSelected="enableSelectAll" :multiSelectable="multiSelectable" :selectable="selectable" :showCheckbox="showCheckbox" @rowSelection="handleClick">
+		    <mu-thead slot="header">
+		      <mu-tr>
+		        <mu-th tooltip="图片">商品图片</mu-th>
+		        <mu-th tooltip="信息">商品信息</mu-th>
+		        <mu-th tooltip="价格">商品价格</mu-th>
+		      </mu-tr>
+		    </mu-thead>
+		    <mu-tbody >
+		      <mu-tr v-for="(item, index) in list">
+		        <mu-td><img style="width:80px;height:80px" v-bind:src='item.goodsImg'></mu-td>
+		        <mu-td>
+		        	<p>商品名称：{{item.goodsName}}</p>
+			      	<p>商品数量：{{item.count}}</p>
+			      	<p>商品价格：{{item.price}}元</p>
+			      	<p>商品颜色：{{item.color}}</p>
+		        </mu-td>
+		        <mu-td>{{item.totle}}元</mu-td>
+		      </mu-tr>
+		    </mu-tbody>
+		  </mu-table>
+		<p v-show="nothing" class="foot">暂无购买任何商品</p>
 		<p class="priceTotle">总计：<span>{{totle}}元</span></p>
 	</div>
 	 
 </template>
-
 <script>
 import { mapMutations } from 'vuex'
 import $ from 'jquery'
@@ -39,7 +63,13 @@ export default {
 			list:this.$store.state.goodsList,
 			checked: [],
 			checkedCount:null,
-			totle:0
+			totle:0,
+			nothing: false,
+			fixedHeader: true,
+	        selectable: true,
+	        multiSelectable: true,
+	        enableSelectAll: true,
+	        showCheckbox: true
 		}
 	},
 	//定义计算价格总和方法
@@ -50,6 +80,10 @@ export default {
    				_totle += x
    			})	
    			return _totle
+		},
+		handleClick: function(selectedRows){
+			console.log(selectedRows)
+			//只返回了某一行的id没有索引值不好处理，已与作者沟通等待更新
 		}
 	},
 	//监听checked变化
@@ -87,6 +121,15 @@ export default {
       	get: function() {
         	return this.checked.length;
       	}
+     },
+     nothing: {
+     	get: function(){
+     		if(this.list.length == 0){
+     			return true
+     		}else{
+     			return false
+     		}
+     	}
      }
    	}
   
@@ -104,6 +147,13 @@ export default {
 	.priceTotle{
 		padding-left: 700px;
 		font-weight: bold
+	}
+	.foot{
+		margin:50px auto 20px;
+		font-size: 20px;
+		font-weight: bold;
+		text-align: center;
+		width: 100%;
 	}
 </style>
 

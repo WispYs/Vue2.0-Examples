@@ -4,18 +4,19 @@ import App from './app'
 import store from './store'
 import dota from './components/dota'
 import wow from './components/wow'
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+Vue.use(MuseUI)
 Vue.use(VueRouter)
 require('bootstrap-sass')
-
 /* eslint-disable no-new */
-
 const router = new VueRouter({
   history: false,
   hashbang: true,
   routes: [
     {
       path: '',
-      component: wow
+      component: dota
     },
     {
       path: '/wow',

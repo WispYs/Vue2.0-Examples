@@ -1,6 +1,7 @@
 <template>
 	<div class="card">
 		<h1>{{title}}</h1>
+    <h2>Vue.Component</h2>
 		<div>
 			<calendar :value="value" :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :pane="2" :placeholder="placeholder" ></calendar>
 		</div>
@@ -9,8 +10,9 @@
 			<calendar :value="value" :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :pane="2" :placeholder="placeholder" :special-days="_dateMap" :has-input="false" :on-day-click="onDayClick"></calendar>
 			<p>{{date}}</p>
 		</div>
-	    
-	    
+	  <h2>Muse-UI</h2>
+    <mu-date-picker hintText="竖屏模式选择" autoOk  v-model="selectDate"/> <span>{{selectDate}}</span><br/>
+    <mu-date-picker mode="landscape" hintText="横屏模式选择"/> <br/>
 	 </div>
 </template>
 <style scoped>
@@ -33,6 +35,7 @@ export default {
       title: 'DatePicker',
       date: '',
       disabled: [],
+      selectDate: '',
       value: '2016-06-10',
       format: 'yyyy-MM-dd',
       clear: true,

@@ -1,18 +1,22 @@
 <template>
-	<div>
-		
-		<div class="route">
+	<div class="route">
 		<h1>{{$store.state.title}}</h1>
-			<div class="left">
-				<ul>
-			        <li><router-link to="/wow">Wow</router-link></li>
-			        <li><router-link to="/dota">Dota</router-link></li>
-			    </ul>
-			</div>
-			<div class="right">
-				<router-view class="view" keep-alive></router-view>
-			</div>    
+		<!-- <div class="left">
+			<ul>
+		        <li><router-link to="/wow" replace>Wow</router-link></li>
+		        <li><router-link to="/dota" replace>Dota</router-link></li>
+		    </ul>
 		</div>
+		<div class="right">
+			<router-view class="view" keep-alive></router-view>
+		</div>   -->
+		<mu-tabs :value="$store.state.activeTab" @change="handleTabChange">
+		  <mu-tab value="tab1" icon="grade" title="Dota"/>
+		  <mu-tab value="tab2" icon="donut_large" title="WOW"/>
+		</mu-tabs>
+		<div>
+			<router-view class="view" keep-alive></router-view>
+		</div>  
 	</div>
 </template>
 <script>
@@ -22,6 +26,17 @@ export default {
   components: {
   	wow,
     dota
+  },
+  methods: {
+    handleTabChange (val) {
+      this.$store.state.activeTab = val
+      if(val == "tab1"){
+      	this.$router.replace({ path: '/dota' })
+      }else if(val == "tab2"){
+      	this.$router.replace({ path: '/wow' })
+      }
+      
+    }
   }
 }
 </script>

@@ -53,8 +53,8 @@ export default {
    	'changePrice',
    	'decrement',
    	'increment',
-   	'addShoppingCar',
-   	'goShopping'
+   	'addShoppingCar'
+   	
    ])
 }
 </script>
