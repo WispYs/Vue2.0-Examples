@@ -16,23 +16,24 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     publicPath: config.build.assetsPublicPath,
-	/* ---- 生成的例子 vendors.61714a310523a3df9869.js --- */
+  /* ---- 生成的例子 vendors.61714a310523a3df9869.js --- */
     //filename: '[name].[hash].js'
-	/* ---- 生成的例子 vendors.js?f3aaf25de220e214f84e --- */
+  /* ---- 生成的例子 vendors.js?f3aaf25de220e214f84e --- */
     filename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
+
       'vue$': 'vue/dist/vue.js',
       'src': path.resolve(__dirname, '../src'),
       'jquery': 'jquery',
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'vux-components': 'vux/src/components',
-      "bootstrap-sass": path.resolve(__dirname,"../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss")
-
+      "bootstrap-sass": path.resolve(__dirname,"../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"),
+      'muse-components': 'muse-ui/src'
     }
   },
   resolveLoader: {
@@ -40,10 +41,12 @@ module.exports = {
   },
   module: {
     loaders: [
+    //解析.vue文件
       {
         test: /\.vue$/,
         loader: 'vue'
       },
+    // 转化ES6的语法
       {
         test: /\.js$/,
         loader: 'babel',
@@ -54,6 +57,7 @@ module.exports = {
         test: /\.json$/,
         loader: 'json'
       },
+    // 编译css并自动添加css前缀
       {
         test   : /\.css$/,
         loader : 'style-loader!css-loader'
@@ -62,6 +66,7 @@ module.exports = {
         test: /\.less$/,
         loader: 'style!css!less'
       },
+    //.scss 文件想要编译，scss就需要这些东西！来编译处理  
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
@@ -85,9 +90,13 @@ module.exports = {
         }
     },
     {
-  		test: /vux.src.*?js$/,
-  		loader: 'babel'
-	}
+      test: /vux.src.*?js$/,
+      loader: 'babel'
+    },
+    {
+      test: /muse-ui.src.*?js$/,
+      loader: 'babel'
+    }
     ]
   },
   vue: {
