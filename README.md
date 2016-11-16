@@ -14,7 +14,7 @@ npm run dev
 # build for production with minification
 npm run build
 ```
- [demo](http://carryguan.me/flex-add/fb1.html)
+ [demo](https://github.com/WispYs/Vue2.0-Examples/blob/master/src/module/login/login.html)
 ## Login
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/login.png)
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/loginerror.png)
