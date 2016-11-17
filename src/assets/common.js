@@ -1,7 +1,7 @@
 
 var Rxports = {
-	
-	loginState:"失败"
+	appName: "wisper",
+	appPass: "000000"
 
 
 }	

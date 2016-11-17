@@ -62,8 +62,8 @@ export default {
     		PassWord:''
     	},
     	init:{
-    		Name:this.$store.state.appName,
-    		PassWord:this.$store.state.appPass
+    		Name:Lib.common.appName,
+    		PassWord:Lib.common.appPass
     	},
     	nameSource: ['wisper'],
     	passWordSource: ['000000'],

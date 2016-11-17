@@ -1,4 +1,5 @@
 <template>
+<div>
 	<div id="shoppingCar">
 	    <h1>{{$store.state.title}}</h1>
 		<table class="table table-striped">
@@ -28,7 +29,7 @@
 		    </tr>
 		  </tbody>
 		</table>
-		<mu-table  :fixedHeader="fixedHeader" :allRowsSelected="enableSelectAll" :multiSelectable="multiSelectable" :selectable="selectable" :showCheckbox="showCheckbox" @rowSelection="handleClick">
+		<mu-table  :fixedHeader="fixedHeader" :allRowsSelected="enableSelectAll" :multiSelectable="multiSelectable" :selectable="selectable" :showCheckbox="showCheckbox" @rowClick="handleClick">
 		    <mu-thead slot="header">
 		      <mu-tr>
 		        <mu-th tooltip="图片">商品图片</mu-th>
@@ -51,8 +52,10 @@
 		  </mu-table>
 		<p v-show="nothing" class="foot">暂无购买任何商品</p>
 		<p class="priceTotle">总计：<span>{{totle}}元</span></p>
+
 	</div>
-	 
+	 		
+</div>
 </template>
 <script>
 import { mapMutations } from 'vuex'
@@ -81,8 +84,8 @@ export default {
    			})	
    			return _totle
 		},
-		handleClick: function(selectedRows){
-			console.log(selectedRows)
+		handleClick: function(index,rowid,tr){
+			console.log(index,rowid,tr)
 			//只返回了某一行的id没有索引值不好处理，已与作者沟通等待更新
 		}
 	},
@@ -132,8 +135,6 @@ export default {
      	}
      }
    	}
-  
-  
 }
 </script>
 
@@ -154,6 +155,15 @@ export default {
 		font-weight: bold;
 		text-align: center;
 		width: 100%;
+	}
+	.mt8 {
+	  margin-top: 8px;
+	}
+	.flex-demo {
+	  height: 32px;
+	  background-color: #e0e0e0;
+	  text-align: center;
+	  line-height: 32px;
 	}
 </style>
 
