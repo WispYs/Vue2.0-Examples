@@ -14,7 +14,7 @@ npm run dev
 # build for production with minification
 npm run build
 ```
- [demo](https://github.com/WispYs/Vue2.0-Examples/blob/master/dist/module/login.html)
+ [demo](http://htmlpreview.github.com/?github.com/WispYs/Vue2.0-Examples/blob/master/dist/module/login.html)
 ## Login
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/login.png)
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/loginerror.png)
