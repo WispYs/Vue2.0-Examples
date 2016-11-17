@@ -15,7 +15,7 @@ npm run dev
 npm run build
 ```
 #预览
- [demo](https://WispYs.github.io/Vue2.0-Examples/src/module/login/login.html)
+ [demo](https://WispYs.github.io/Vue2.0-Examples/dist/module/login.html)
  
 ## Login
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/login.png)
