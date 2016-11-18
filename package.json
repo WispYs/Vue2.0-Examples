@@ -21,7 +21,7 @@
     "bootstrap-sass": "^3.3.7",
     "china-area-data": "^1.0.0",
     "jquery": "^1.12.4",
-    "muse-ui": "^2.0.0-alpha.6",
+    "muse-ui": "^2.0.0-alpha.7",
     "style-loader": "^0.13.1",
     "vue": "^2.0.5",
     "vue-easy-slider": "^1.3.0",

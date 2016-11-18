@@ -2,6 +2,7 @@
 <div>
 	<div id="shoppingCar">
 	    <h1>{{$store.state.title}}</h1>
+	    <h3>Native</h3>
 		<table class="table table-striped">
 		  <thead>
 		    <tr>
@@ -29,7 +30,14 @@
 		    </tr>
 		  </tbody>
 		</table>
-		<mu-table  :fixedHeader="fixedHeader" :allRowsSelected="enableSelectAll" :multiSelectable="multiSelectable" :selectable="selectable" :showCheckbox="showCheckbox" @rowClick="handleClick">
+		<p v-show="nothing" class="foot">暂无购买任何商品</p>
+		<p class="priceTotle">总计：<span>{{totle}}元</span></p>
+		<br/>
+		<hr/>
+
+		
+		<h3>Muse-UI</h3>
+		<mu-table  :fixedHeader="fixedHeader" :enableSelectAll="enableSelectAll"  :multiSelectable="multiSelectable" :selectable="selectable" :showCheckbox="showCheckbox" @rowSelection="handleClick">
 		    <mu-thead slot="header">
 		      <mu-tr>
 		        <mu-th tooltip="图片">商品图片</mu-th>
@@ -51,7 +59,7 @@
 		    </mu-tbody>
 		  </mu-table>
 		<p v-show="nothing" class="foot">暂无购买任何商品</p>
-		<p class="priceTotle">总计：<span>{{totle}}元</span></p>
+		<p class="priceTotle">总计：<span>{{totleM}}元</span></p>
 
 	</div>
 	 		
@@ -65,8 +73,9 @@ export default {
 		return {
 			list:this.$store.state.goodsList,
 			checked: [],
-			checkedCount:null,
-			totle:0,
+			checkedCount: null,
+			totle: 0,
+			totleM: 0,
 			nothing: false,
 			fixedHeader: true,
 	        selectable: true,
@@ -84,9 +93,15 @@ export default {
    			})	
    			return _totle
 		},
-		handleClick: function(index,rowid,tr){
-			console.log(index,rowid,tr)
-			//只返回了某一行的id没有索引值不好处理，已与作者沟通等待更新
+		handleClick: function(selectedRowsIndex){
+			console.log(selectedRowsIndex)
+			var _this = this
+			this.totleM = 0
+			selectedRowsIndex.forEach(function(x){
+				console.log(_this.list[x].totle)
+				_this.totleM += _this.list[x].totle
+			})
+			
 		}
 	},
 	//监听checked变化
