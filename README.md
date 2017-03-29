@@ -17,6 +17,10 @@ npm run build
 #预览
  [Demo](https://WispYs.github.io/Vue2.0-Demo/module/login.html)
  
+# 特别注意：
+
+访问地址：localhost:8080/module/login.html
+ 
 ## Login
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/login.png)
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/loginerror.png)
@@ -47,6 +51,3 @@ npm run build
 ## RegionPicker
 ![image](https://github.com/WispYs/Vue2.0-Examples/raw/master/src/assets/img/regionPicker.png)
 
-# 特别注意：
-
-访问地址：localhost:8080/module/login.html
