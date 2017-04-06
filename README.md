@@ -14,7 +14,7 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-#预览
+# 预览
  [Demo](https://WispYs.github.io/Vue2.0-Demo/module/login.html)
  
 # 特别注意：
